@@ -1,0 +1,73 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>stranka.sk</title>
+    <style>
+        * {
+            margin: auto;
+        }
+
+        .bubble {
+            width: 150px;
+            height: 150px;
+            border-radius: 150px;
+            background-color: cornflowerblue;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            text-align: center;
+            animation: resizing 1s infinite;
+        }
+
+        .bubble:hover {
+            opacity: 0.5;
+            cursor: pointer;
+        }
+
+        .bubble-slowdown {
+            animation-duration: 5s;
+        }
+
+        @keyframes resizing {
+            0% {
+                width: 150px;
+                height: 150px;
+            }
+            25% {
+                width: 70px;
+                height: 70px;
+            }
+            50% {
+                width: 150px;
+                height: 150px;
+            }
+            75% {
+                width: 70px;
+                height: 70px;
+            }
+            100% {
+                width: 150;
+                height: 150;
+            }
+        }
+    </style>
+    <script>
+        function makeSlow(){
+            var bubble = event.srcElement;
+            if(bubble.classList.contains('bubble-slowdown')) {
+                bubble.classList.remove('bubble-slowdown');
+            } else {
+                bubble.classList.add('bubble-slowdown');
+            }
+        }
+
+    </script>
+</head>
+<body>
+    <br>
+    <div class="bubble bubble-slowdown" onclick="makeSlow()"> 
+        <span>klikni SI!</span>
+    </div>
+</body>
+</html>
